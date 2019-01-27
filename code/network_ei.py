@@ -87,7 +87,7 @@ def check_network(G, printt=False):
 
     return G
 
-def get_Wout(G, p0=np.exp(-30)):
+def get_Wout(G, p0=0.0):
     """
     Returns Wout, the transition probability matrix of a graph G, 
     only including nodes with outgoing edges.
@@ -106,7 +106,7 @@ def get_Wout(G, p0=np.exp(-30)):
     else:
         return np.zeros((G.number_of_nodes(),G.number_of_nodes()))
 
-def get_Wout_full(G, p0=np.exp(-30)):
+def get_Wout_full(G, p0=0.0):
     """
     Returns full Wout.
     """
@@ -124,7 +124,7 @@ def get_Wout_full(G, p0=np.exp(-30)):
     
     return Wout
 
-def get_Win(G, p0=np.exp(-30)):
+def get_Win(G, p0=0.0):
     """
     Returns W_in, the average probility that a random walker 
     transitions to a node_j in the next timestep.
@@ -135,7 +135,7 @@ def get_Win(G, p0=np.exp(-30)):
     else:
         return np.zeros(len(W_out[0]))
 
-def get_ei_i(G, p0=np.exp(-20)):
+def get_ei_i(G, p0=0.0):
     """
     Calculates effect information for each node in a given network.
     """
@@ -149,7 +149,7 @@ def get_ei_i(G, p0=np.exp(-20)):
     else:
         return np.zeros(W_out.shape[0])
 
-def get_ei(G, p0=np.exp(-20)):
+def get_ei(G, p0=0.0):
     """
     Calculates EI for a given network.
     """
@@ -160,7 +160,7 @@ def get_ei(G, p0=np.exp(-20)):
 
     return sum(eis)/Nout
 
-def get_determinism(G, p0=np.exp(-30)):
+def get_determinism(G, p0=0.0):
     """
     Returns the determinism present in the network.
     """
@@ -175,7 +175,7 @@ def get_determinism(G, p0=np.exp(-30)):
     else:
         return 0.0
     
-def get_degeneracy(G, p0=np.exp(-30)):
+def get_degeneracy(G, p0=0.0):
     """
     Returns the value for the degeneracy of the network.
     """
@@ -188,7 +188,7 @@ def get_degeneracy(G, p0=np.exp(-30)):
     else:
         return 0.0
 
-def get_ei_dd(G, p0=np.exp(-30)):
+def get_ei_dd(G, p0=0.0):
     """
     Returns the effective information of the network 
     from determinism & degeneracy.
