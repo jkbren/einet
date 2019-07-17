@@ -31,7 +31,7 @@ Brennan Klein and Erik Hoel, 2019.\
 4. [Chapter 04 - Effective Information in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2004%20-%20Effective%20Information%20in%20Real%20Networks.ipynb)
 5. [Chapter 05 - Causal Emergence in Preferential Attachment and SBMs](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2005%20-%20Causal%20Emergence%20in%20Preferential%20Attachment%20and%20SBMs.ipynb)
 6. [Chapter 06 - Causal Emergence and the Emergence of Scale](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2006%20-%20Causal%20Emergence%20and%20the%20Emergence%20of%20Scale.ipynb)
-7. [Chapter 07 - Causal Emergence in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2007%20-%20Causal%20Emergence%20in%20Real%20Networks.ipynb)
+7. [Chapter 07 - Estimating Causal Emergence in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2007%20-%20Estimating%20Causal%20Emergence%20in%20Real%20Networks.ipynb)
 
 ## Installation and Usage
 
