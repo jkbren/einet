@@ -1,3 +1,3 @@
-# ei-net
+# einet
 
-First pass at making an effective information for complex networks repo
+Python code for calculating $effective information$ in networks. 
