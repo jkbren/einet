@@ -35,9 +35,9 @@ Brennan Klein and Erik Hoel, 2019.\
 ## Installation and Usage
 
 In order to use this code, first clone/download the repository. 
-Below is a simple example usage. Please note: please feel free to reach out 
-if you find any bugs, have any questions, or if for some reason
-the code does not run. 
+Below is a simple example usage. Please note: please feel free to reach 
+out if you find any bugs, have any questions, or if for some reason
+the code does not run. (I'm new at this!)
 
 ```Python
 import networkx as nx
@@ -61,19 +61,22 @@ the original paper.
 
 ## Requirements  <a name="requirements"/>
 
-* [Python 3.x](https://www.python.org) with packages:
-    + [Numpy](http://numpy.scipy.org/)
-    + [Scipy](http://www.scipy.org/)
-    + [NetworkX](https://networkx.github.io)
+This code is written in [Python 3.x](https://www.python.org) and uses 
+the following packages:
 
-A recent install of [Anaconda Python](https://www.anaconda.com) 
-should come with everything you need.
+* [NetworkX](https://networkx.github.io)
+* [Scipy](http://www.scipy.org/)
+* [Numpy](http://numpy.scipy.org/)
+* And for replicating figures, you will need:
+    + [matplotlib](https://matplotlib.org)
+    + [Pandas](https://pandas.pydata.org/)
+
 
 ## Citation   <a name="citation"/>
 
 If you use these methods and this code in your own research, please cite our paper:
 
-Brennan Klein and Erik Hoel, *Uncertainty and causal emergence in complex networks* (2019)
+Brennan Klein and Erik Hoel, **Uncertainty and causal emergence in complex networks** (2019)
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
 Here is a bibtex entry:
