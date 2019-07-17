@@ -3,7 +3,12 @@
 Python code for calculating *effective information* in networks. This can 
 then be used to search for macroscale representations of a network such 
 that the coarse grained representation has more effective information than 
-the microscale, a phenomenon known as *causal emergence*.
+the microscale, a phenomenon known as *causal emergence*. This code 
+accompanies the recent paper: 
+
+**Uncertainty and causal emergence in complex networks**\
+Brennan Klein and Erik Hoel, 2019.\
+[arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
 <p align="center">
 <img src="figs/pngs/ei_ER_PA.png" alt="EI in ER and PA networks" width="75%"/>
@@ -18,13 +23,6 @@ the microscale, a phenomenon known as *causal emergence*.
 **<p align="center">Fig. 2: Causal emergence vs preferential attachment.</center>**
 
 - - - -
-
-This code accompanies the recent paper: 
-
-**Uncertainty and causal emergence in complex networks**\
-Brennan Klein and Erik Hoel, 2019.\
-[arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
-
 
 ## Tutorial Notebooks (works in progress...)
 1. [Chapter 01 - Network Effective Information](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2001%20-%20Network%20Effective%20Information.ipynb)
@@ -94,7 +92,13 @@ Here is a bibtex entry:
 
 ## See also:
 
-* Hoel, E. (2017). **When the map is better than the territory**. *Entropy*. 19(5), 188; doi: [10.3390/e19050188](https://www.mdpi.com/1099-4300/19/5/188).
-    + recent work making explicit connections between causal emergence and the channel capacity of a model.
-* Hoel, E., Albantakis, L., & Tononi, G. (2013). **Quantifying causal emergence shows that macro can beat micro**. *Proceedings of the National Academy of Sciences*. 110 (49) 19790-19795. doi: [10.1073/pnas.1314922110](https://www.pnas.org/content/110/49/19790).
-    + the first work to quantify causal emergence, showing how and why certain coarse-grained models can have more effective information.
+* Hoel, E. (2017). **When the map is better than the territory**. 
+*Entropy*. 19(5), 188; doi: [10.3390/e19050188](https://www.mdpi.com/1099-4300/19/5/188).
+    + recent work making explicit connections between causal emergence 
+    and the channel capacity of a model.
+* Hoel, E., Albantakis, L., & Tononi, G. (2013). **Quantifying causal 
+emergence shows that macro can beat micro**. *Proceedings of the 
+National Academy of Sciences*. 110 (49) 19790-19795.
+doi: [10.1073/pnas.1314922110](https://www.pnas.org/content/110/49/19790).
+    + the first work to quantify causal emergence, showing how and why 
+    certain coarse-grained models can have more effective information.
