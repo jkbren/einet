@@ -12,7 +12,7 @@ the microscale, a phenomenon known as *causal emergence*.
 <p align="center">Effective information vs network size.
 
 <p align="center">
-<img src="figs/pngs/CE_PA.png" alt="EI in ER and PA networks" width="85%"/>
+<img src="figs/pngs/CE_PA.png" alt="EI in ER and PA networks" width="80%"/>
 </p>
 
 <p align="center">Causal emergence vs preferential attachment.</center>
