@@ -40,7 +40,7 @@ Brennan Klein and Erik Hoel, 2019.\
 In order to use this code, first clone/download the repository. 
 Below is a simple example usage. Please note: please feel free to reach 
 out if you find any bugs, have any questions, or if for some reason
-the code does not run. (I'm new at this!)
+the code does not run. 
 
 ```Python
 import networkx as nx
@@ -82,7 +82,7 @@ If you use these methods and this code in your own research, please cite our pap
 Klein, B. & Hoel, E. (2019). **Uncertainty and causal emergence in complex networks**. 
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
-Here is a bibtex entry:
+Bibtex: 
 ```text
 @article{klein2019causalemergence,
   title={Uncertainty and causal emergence in complex networks},
