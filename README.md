@@ -43,16 +43,15 @@ out if you find any bugs, have any questions, or if for some reason
 the code does not run. 
 
 ```Python
-import networkx as nx
-import numpy as np
-from ei_net import *
+>>> import networkx as nx
+>>> import numpy as np
+>>> from ei_net import *
 
-G = nx.karate_club_graph()
+>>> G = nx.karate_club_graph()
 
-print("EI(G) =", EI(G))
+>>> print("EI(G) =", EI(G))
 ```
 
-Result:
 ```text
 EI(G) = 2.3500950888734686
 ```
