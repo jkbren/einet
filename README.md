@@ -24,7 +24,7 @@ Brennan Klein and Erik Hoel, 2019.\
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
 
-## Tutorial Notebooks
+## Tutorial Notebooks (work in progress...)
 1. [Chapter 01 - Network Effective Information](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2001%20-%20Network%20Effective%20Information.ipynb)
 2. [Chapter 02 - Network Size and Effective Information](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2002%20-%20Network%20Size%20and%20Effective%20Information.ipynb)
 3. [Chapter 03 - Determinism and Degeneracy](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2003%20-%20Determinism%20and%20Degeneracy.ipynb)
@@ -32,14 +32,12 @@ Brennan Klein and Erik Hoel, 2019.\
 5. [Chapter 05 - Causal Emergence in Preferential Attachment and SBMs](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2005%20-%20Causal%20Emergence%20in%20Preferential%20Attachment%20and%20SBMs.ipynb)
 6. [Chapter 06 - Causal Emergence and the Emergence of Scale](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2006%20-%20Causal%20Emergence%20and%20the%20Emergence%20of%20Scale.ipynb)
 
-
 ## Installation and Usage
 
 In order to use this code, first clone/download the repository. 
-Below is a simple example usage (for a more in-depth introduction, 
-follow along starting with the 
-```Chapter 01 - Chapter 01 - Network Effective Information.ipynb``` 
-notebook).
+Below is a simple example usage. Please note: please feel free to reach out 
+if you find any bugs, have any questions, or if for some reason
+the code does not run. 
 
 ```Python
 import networkx as nx
