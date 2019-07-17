@@ -9,13 +9,13 @@ the microscale, a phenomenon known as *causal emergence*.
 <img src="figs/pngs/ei_ER_PA.png" alt="EI in ER and PA networks" width="85%"/>
 </p>
 
-<p align="center">Effective information vs network size.
+**<p align="center">Fig. 1: Effective information vs network size.**
 
 <p align="center">
 <img src="figs/pngs/CE_PA.png" alt="EI in ER and PA networks" width="80%"/>
 </p>
 
-<p align="center">Causal emergence vs preferential attachment.</center>
+**<p align="center">Fig. 2: Causal emergence vs preferential attachment.</center>**
 
 This code accompanies the recent paper: 
 
@@ -24,13 +24,14 @@ Brennan Klein and Erik Hoel, 2019.\
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
 
-## Tutorial Notebooks (work in progress...)
+## Tutorial Notebooks (works in progress...)
 1. [Chapter 01 - Network Effective Information](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2001%20-%20Network%20Effective%20Information.ipynb)
 2. [Chapter 02 - Network Size and Effective Information](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2002%20-%20Network%20Size%20and%20Effective%20Information.ipynb)
 3. [Chapter 03 - Determinism and Degeneracy](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2003%20-%20Determinism%20and%20Degeneracy.ipynb)
 4. [Chapter 04 - Effective Information in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2004%20-%20Effective%20Information%20in%20Real%20Networks.ipynb)
 5. [Chapter 05 - Causal Emergence in Preferential Attachment and SBMs](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2005%20-%20Causal%20Emergence%20in%20Preferential%20Attachment%20and%20SBMs.ipynb)
 6. [Chapter 06 - Causal Emergence and the Emergence of Scale](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2006%20-%20Causal%20Emergence%20and%20the%20Emergence%20of%20Scale.ipynb)
+7. [Chapter 07 - Causal Emergence in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2007%20-%20Causal%20Emergence%20in%20Real%20Networks.ipynb)
 
 ## Installation and Usage
 
