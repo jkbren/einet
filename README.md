@@ -9,6 +9,10 @@ the microscale, a phenomenon known as *causal emergence*.
 <img src="ei_ER_PA.png" alt="EI in ER and PA networks" width="85%"/>
 </p>
 
+<p align="center">
+<img src="CE_PA.png" alt="EI in ER and PA networks" width="85%"/>
+</p>
+
 This code accompanies the recent paper: 
 
 **Uncertainty and causal emergence in complex networks**\
@@ -16,17 +20,22 @@ Brennan Klein and Erik Hoel, 2019.\
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
 
+## Tutorial Notebooks
+1. [Chapter 01 - Network Effective Information]()
+2. [Chapter 02 - Network Size and Effective Information]()
+3. [Chapter 03 - Determinism and Degeneracy]()
+4. [Chapter 04 - Effective Information in Real Networks]()
+5. [Chapter 05 - Causal Emergence in Preferential Attachment and SBMs]()
+5. [Chapter 06 - Causal Emergence and the Emergence of Scale_figs]()
+
+
 ## Installation and Usage
 
 In order to use this code, first clone/download the repository. 
-
-The tutorial notebooks are designed to walk through some of the 
-main results from the [paper above](https://arxiv.org/abs/1907.03902), 
-in addition to several in-depth analyses that were not included in 
-the original paper.
-
-For starters, follow along in the 
-```Chapter 01 - Chapter 01 - Network Effective Information.ipynb``` notebook.
+Below is a simple example usage (for a more in-depth introduction, 
+follow along starting with the 
+```Chapter 01 - Chapter 01 - Network Effective Information.ipynb``` 
+notebook).
 
 ```Python
 import networkx as nx
@@ -42,6 +51,11 @@ Result:
 ```text
 EI(G) = 2.3500950888734686
 ```
+
+The tutorial notebooks are designed to walk through some of the 
+main results from the [paper above](https://arxiv.org/abs/1907.03902), 
+in addition to several in-depth analyses that were not included in 
+the original paper.
 
 ## Requirements  <a name="requirements"/>
 
