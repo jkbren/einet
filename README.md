@@ -25,12 +25,12 @@ Brennan Klein and Erik Hoel, 2019.\
 
 
 ## Tutorial Notebooks
-1. [Chapter 01 - Network Effective Information]()
-2. [Chapter 02 - Network Size and Effective Information]()
-3. [Chapter 03 - Determinism and Degeneracy]()
-4. [Chapter 04 - Effective Information in Real Networks]()
-5. [Chapter 05 - Causal Emergence in Preferential Attachment and SBMs]()
-5. [Chapter 06 - Causal Emergence and the Emergence of Scale_figs]()
+1. [Chapter 01 - Network Effective Information](https://nbviewer.jupyter.org/github/jkbren/einet/tree/master/code/)
+2. [Chapter 02 - Network Size and Effective Information](https://nbviewer.jupyter.org/github/jkbren/einet/tree/master/code/)
+3. [Chapter 03 - Determinism and Degeneracy](https://nbviewer.jupyter.org/github/jkbren/einet/tree/master/code/)
+4. [Chapter 04 - Effective Information in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/tree/master/code/)
+5. [Chapter 05 - Causal Emergence in Preferential Attachment and SBMs](https://nbviewer.jupyter.org/github/jkbren/einet/tree/master/code/)
+6. [Chapter 06 - Causal Emergence and the Emergence of Scale](https://nbviewer.jupyter.org/github/jkbren/einet/tree/master/code/)
 
 
 ## Installation and Usage
