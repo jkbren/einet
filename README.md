@@ -59,7 +59,7 @@ Here is a bibtex entry:
 
 ## See also:
 
-* Hoel, E. (2017). When the map is better than the territory. *Entropy*. 19(5), 188; doi: [10.3390/e19050188](https://www.mdpi.com/1099-4300/19/5/188).
+* Hoel, E. (2017). **When the map is better than the territory**. *Entropy*. 19(5), 188; doi: [10.3390/e19050188](https://www.mdpi.com/1099-4300/19/5/188).
     + recent work making explicit connections between causal emergence to the channel capacity.
-* Hoel, E., Albantakis, L., & Tononi, G. (2013). Quantifying causal emergence shows that macro can beat micro. *Proceedings of the National Academy of Sciences*. 110 (49) 19790-19795. doi: [10.1073/pnas.1314922110](https://www.pnas.org/content/110/49/19790).
+* Hoel, E., Albantakis, L., & Tononi, G. (2013). **Quantifying causal emergence shows that macro can beat micro**. *Proceedings of the National Academy of Sciences*. 110 (49) 19790-19795. doi: [10.1073/pnas.1314922110](https://www.pnas.org/content/110/49/19790).
     + the first work to quantify causal emergence, that coarse grained models can have more effective information.
