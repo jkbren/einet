@@ -73,6 +73,8 @@ the following packages:
     + [matplotlib](https://matplotlib.org)
     + [Pandas](https://pandas.pydata.org/)
 
+The colormaps in the paper are from [https://matplotlib.org/cmocean/](https://matplotlib.org/cmocean/)
+and the named colors are from [https://medialab.github.io/iwanthue/](https://medialab.github.io/iwanthue/).
 
 ## Citation   <a name="citation"/>
 
