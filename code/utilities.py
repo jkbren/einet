@@ -38,7 +38,9 @@ def show_values(pc, ax, fontsize=16, fmt="%.3f", **kw):
 
         
 def plot_TPM_micromacro(TPMicro, TPM_grouping, mult=5, save=False, fn=1):
-    """Make pretty TPMs""" 
+    """
+    Make pretty TPMs
+    """ 
     alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
     			'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 
     			'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -185,4 +187,5 @@ def softmax(A, k=1.0):
     A = A - maxA
     A = np.exp(A)
     A = A/np.sum(A)
+
     return A
