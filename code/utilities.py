@@ -3,8 +3,8 @@ utilities.py
 --------------------
 Plotting and other utility code related to the paper:
 
-Klein, B. & Hoel, E. (2019) Effective information quantifies causal structure
-                            and causal emergence in complex networks.
+Klein, B. & Hoel, E. (2019) 
+Uncertainty and causal emergence in complex networks.
 
 author: Brennan Klein 
 email: brennanjamesklein at gmail dot com

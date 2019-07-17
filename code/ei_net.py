@@ -1,14 +1,14 @@
-# """
-# ei_net.py
-# --------------------
-# Netowrk effective information code related to the paper:
+"""
+ei_net.py
+--------------------
+Network effective information code related to the paper:
 
-# Klein, B. & Hoel, E. (2019) Quantifying causal structure and 
-#                             causal emergence in complex networks.
+Klein, B. & Hoel, E. (2019) 
+Uncertainty and causal emergence in complex networks.
 
-# author: Brennan Klein 
-# email: brennanjamesklein at gmail dot com
-# """
+author: Brennan Klein 
+email: brennanjamesklein at gmail dot com
+"""
 
 import numpy as np
 import networkx as nx
