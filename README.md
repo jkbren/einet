@@ -28,6 +28,20 @@ the original paper.
 For starters, follow along in the 
 ```Chapter 01 - Chapter 01 - Network Effective Information.ipynb``` notebook.
 
+```Python
+import networkx as nx
+import numpy as np
+from ei_net import *
+
+G = nx.karate_club_graph()
+
+print("EI(G) =", EI(G))
+```
+
+Result:
+```text
+EI(G) = 2.3500950888734686
+```
 
 ## Requirements  <a name="requirements"/>
 
@@ -38,7 +52,6 @@ For starters, follow along in the
 
 A recent install of [Anaconda Python](https://www.anaconda.com) 
 should come with everything you need.
-
 
 ## Citation   <a name="citation"/>
 
