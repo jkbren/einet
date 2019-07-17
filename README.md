@@ -1,4 +1,4 @@
-# Network effective information and causal emergence in python
+# Effective information and causal emergence in python
 
 Python code for calculating *effective information* in networks. This can 
 then be used to search for macroscale representations of a network such 
