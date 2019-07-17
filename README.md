@@ -77,7 +77,7 @@ the following packages:
 
 If you use these methods and this code in your own research, please cite our paper:
 
-Klein, B. & Hoel, E. (2019) **Uncertainty and causal emergence in complex networks**. 
+Klein, B. & Hoel, E. (2019). **Uncertainty and causal emergence in complex networks**. 
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
 Here is a bibtex entry:
