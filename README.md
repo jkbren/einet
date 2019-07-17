@@ -6,16 +6,18 @@ that the coarse grained representation has more effective information than
 the microscale, a phenomenon known as *causal emergence*.
 
 <p align="center">
-<img src="figs/pngs/ei_ER_PA.png" alt="EI in ER and PA networks" width="85%"/>
+<img src="figs/pngs/ei_ER_PA.png" alt="EI in ER and PA networks" width="75%"/>
 </p>
 
 **<p align="center">Fig. 1: Effective information vs network size.**
 
 <p align="center">
-<img src="figs/pngs/CE_PA.png" alt="EI in ER and PA networks" width="80%"/>
+<img src="figs/pngs/CE_PA.png" alt="EI in ER and PA networks" width="70%"/>
 </p>
 
 **<p align="center">Fig. 2: Causal emergence vs preferential attachment.</center>**
+
+- - - -
 
 This code accompanies the recent paper: 
 
