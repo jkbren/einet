@@ -10,6 +10,8 @@ accompanies the recent paper:
 Brennan Klein and Erik Hoel, 2019.\
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
+- - - -
+
 <p align="center">
 <img src="figs/pngs/ei_ER_PA.png" alt="EI in ER and PA networks" width="75%"/>
 </p>
