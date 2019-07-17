@@ -27,3 +27,36 @@ For starters, follow along in the
 
 
 
+## Requirements  <a name="requirements"/>
+
+* [Python 3.x](https://www.python.org) with packages:
+    + [Numpy](http://numpy.scipy.org/)
+    + [Scipy](http://www.scipy.org/)
+    + [NetworkX](https://networkx.github.io)
+
+A recent install of [Anaconda Python](https://www.anaconda.com) should come with everything you need.
+
+
+## Citation   <a name="citation"/>
+
+If you use these methods and this code in your own research, please cite our paper:
+
+Brennan Klein and Erik Hoel, *Uncertainty and causal emergence in complex networks* (2019)
+[arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
+
+Here is a bibtex entry:
+```text
+@article{klein2019causalemergence,
+  title={Uncertainty and causal emergence in complex networks},
+  author={Klein, Brennan and Hoel, Erik},
+  journal={arXiv preprint arXiv:1907.03902},
+  year={2019}
+}
+```
+
+### See also:
+
+*[When the Map is Better than the Territory](https://www.mdpi.com/1099-4300/19/5/188)*
+&mdash; recent work comparing effective information and causal emergence to the channel capacity.
+*[Quantifying causal emergence shows that macro can beat micro](https://www.pnas.org/content/110/49/19790)*
+&mdash; the first work to quantify causal emergence.
