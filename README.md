@@ -38,7 +38,7 @@ Brennan Klein and Erik Hoel, 2019.\
 ## Installation and Usage
 
 In order to use this code, first clone/download the repository. 
-Below is a simple example usage. Please note: please feel free to reach 
+Below is a simple example usage. Please feel free to reach 
 out if you find any bugs, have any questions, or if for some reason
 the code does not run. 
 
