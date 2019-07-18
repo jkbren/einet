@@ -43,13 +43,10 @@ out if you find any bugs, have any questions, or if for some reason
 the code does not run. 
 
 ```Python
->>> import networkx as nx
->>> import numpy as np
 >>> from ei_net import *
-
+>>> import networkx as nx
 >>> G = nx.karate_club_graph()
-
->>> print("EI(G) =", EI(G))
+>>> print("effective_information(G) =", effective_information(G))
 ```
 
 ```text
