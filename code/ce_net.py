@@ -73,6 +73,11 @@ def create_macro(G, macro_mapping, macro_types):
 
     all_final_node_types = {i: 'micro' for i in nodes_in_macro_network if
                             i < G_micro.number_of_nodes()}
+
+    for macro_i in nodes_in_macro_network_mapping.keys():
+        if macro_i not in all_final_node_types.keys():
+            all_final_node_types[macro_i] = 'spatem1'
+
     macro_mumu_pairings = {}
     spt2_ind_tmp = 0
 
@@ -452,11 +457,11 @@ def select_macro(G_micro, node_i_macro, possible_mapping, macro_types, F=True):
 
         return G_macro, macro_types_spatem1
 
-    # is there a condition for returning only the micro?
     return G_micro, macro_types
 
 
-def causal_emergence(G, span=-1, thresh=1e-4, t=500, types=False, printt=True):
+def causal_emergence(G, span=-1, thresh=1e-4, t=500,
+                     types=False, check_inacc=False, printt=True):
     """
     Given a microscale network, $G$, this function iteratively checks different
     coarse-grainings to see if it finds one with higher effective information.
@@ -476,6 +481,9 @@ def causal_emergence(G, span=-1, thresh=1e-4, t=500, types=False, printt=True):
                   that are selected for each run of causal emergence. Otherwise
                   this function creates macronodes based on the stationary
                   distribution of the underlying micronodes.
+    check_inacc (bool): will check the inaccuracy following the addition of
+                        each newly-added macro-node, to ensure that only
+                        accurate macros are added.
     printt (bool): if True, this will print out progress of the algorithm
 
     Returns
@@ -577,17 +585,22 @@ def causal_emergence(G, span=-1, thresh=1e-4, t=500, types=False, printt=True):
             else:
                 macro_types_tmp = macro_types.copy()
                 macro_types_tmp[node_i_macro] = "spatem1"
-                G_macro = create_macro(G_micro, possible_mapping, macro_types_tmp)
+                G_macro = create_macro(G_micro, possible_mapping,
+                                       macro_types_tmp)
 
             G_macro = check_network(G_macro)
             EI_macro = effective_information(G_macro)
             if np.isinf(EI_macro):
                 return G_macro
 
-            if EI_macro - EI_current > thresh:
+            inacc = np.zeros(t)
+            if check_inacc:
+                inacc = macro_inaccuracy(G_micro, G_macro, possible_mapping,
+                                         macro_types_tmp, t)['inaccuracies']
+
+            if EI_macro - EI_current > thresh and sum(inacc[-4:]) < 1e-3:
 
                 # accurate_macro_pairs  += 1
-
                 # keep adding nodes in the queue to the current macro
                 # grouping once you get anything with a little extra EI
                 EI_current = EI_macro
