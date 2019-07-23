@@ -13,13 +13,13 @@ Brennan Klein and Erik Hoel, 2019.\
 - - - -
 
 <p align="center">
-<img src="figs/pngs/ei_ER_PA.png" alt="EI in ER and PA networks" width="75%"/>
+<img src="figs/pngs/ei_ER_PA.png" alt="EI in ER and PA networks" width="95%"/>
 </p>
 
 **<p align="center">Fig. 1: Effective information vs network size.**
 
 <p align="center">
-<img src="figs/pngs/CE_PA.png" alt="EI in ER and PA networks" width="70%"/>
+<img src="figs/pngs/CE_PA.png" alt="EI in ER and PA networks" width="90%"/>
 </p>
 
 **<p align="center">Fig. 2: Causal emergence vs preferential attachment.</center>**
