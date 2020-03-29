@@ -6,8 +6,8 @@ that the coarse grained representation has more effective information than
 the microscale, a phenomenon known as *causal emergence*. This code 
 accompanies the recent paper: 
 
-**Uncertainty and causal emergence in complex networks**\
-Brennan Klein and Erik Hoel, 2019.\
+**The emergence of informative higher scales in complex networks**\
+Brennan Klein and Erik Hoel, 2020.\
 [arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
 
 - - - -
@@ -78,16 +78,17 @@ and the named colors are from [https://medialab.github.io/iwanthue/](https://med
 
 If you use these methods and this code in your own research, please cite our paper:
 
-Klein, B. & Hoel, E. (2019). **Uncertainty and causal emergence in complex networks**. 
-[arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
+Klein, B. & Hoel, E. (2020). **The emergence of informative higher scales in complex networks**. 
+_Complexity_, no. 8932526. [arXiv:1907.03902](https://arxiv.org/abs/1907.03902).
 
 Bibtex: 
 ```text
-@article{klein2019causalemergence,
-  title={Uncertainty and causal emergence in complex networks},
+@article{klein2020causalemergence,
+  title={The emergence of informative higher scales in complex networks},
   author={Klein, Brennan and Hoel, Erik},
-  journal={arXiv preprint arXiv:1907.03902},
-  year={2019}
+  journal={Complexity},
+  year={2020},
+  number={8932526}
 }
 ```
 
