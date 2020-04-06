@@ -8,14 +8,24 @@ Uncertainty and causal emergence in complex networks.
 
 author: Brennan Klein
 email: brennanjamesklein at gmail dot com
+
+With development contributions from
+author: Ross Griebenow
+email: rossgriebenow at gmail dot com
 """
 
 import numpy as np
-from ei_net import *
+from ei_net import check_network
+from ei_net import stationary_distribution
+from ei_net import effective_information
+from ei_net import W_out
+import scipy as sp
+import warnings
+from sklearn.cluster import OPTICS, cluster_optics_dbscan
 
 
-def create_macro(G, macro_mapping, macro_types):
-    """
+def create_macro(G, macro_mapping, macro_types={}):
+    r"""
     Coarse-grains a network according to the specified macro_mapping and
     the types of macros that each macro is associated with.
 
@@ -36,14 +46,15 @@ def create_macro(G, macro_mapping, macro_types):
 
     G_micro = check_network(G)
     Wout_micro = W_out(G_micro)
+    # if macro_mapping == {}:
+    #     return Wout_micro
+
     if macro_types == {}:
-        return Wout_micro
+        macro_types = {j:'spatem1' for i, j in macro_mapping.items() if i != j}
 
     # the size of the whole microscale network
     micro_stationary = stationary_distribution(G_micro)
 
-    # list of nodes that are in the microscale network
-    nodes_in_micro_network = list(np.unique(list(macro_mapping.keys())))
     # list of nodes that are in the macroscale network
     nodes_in_macro_network = list(np.unique(list(macro_mapping.values())))
 
@@ -57,8 +68,6 @@ def create_macro(G, macro_mapping, macro_types):
 
     # now: these are the indices of the nodes in the TOO_BIG_MACRO
     nodes_in_macro_network = nodes_in_macro_network + macro_id_spatem2
-    # the size of the whole macroscale network
-    N_macro = len(nodes_in_macro_network)
     # the size of the TOO_BIG_MACRO that we will be filling in
     n_TOO_BIG_MACRO = max(nodes_in_macro_network) + 1
 
@@ -370,7 +379,7 @@ def create_macro(G, macro_mapping, macro_types):
 
 
 def select_macro(G_micro, node_i_macro, possible_mapping, macro_types, F=True):
-    """
+    r"""
     Given a current macro_mapping of a micro scale network, and given a new
     node that is being considered for a macro node, this function selects the
     type of macro node that the new nide should be assigned to, such that the
@@ -462,7 +471,7 @@ def select_macro(G_micro, node_i_macro, possible_mapping, macro_types, F=True):
 
 def causal_emergence(G, span=-1, thresh=1e-4, t=500,
                      types=False, check_inacc=False, printt=True):
-    """
+    r"""
     Given a microscale network, $G$, this function iteratively checks different
     coarse-grainings to see if it finds one with higher effective information.
 
@@ -638,23 +647,23 @@ def causal_emergence(G, span=-1, thresh=1e-4, t=500,
         EI_macro = EI_micro
         G_macro = G_micro.copy()
 
-    inaccuracies = macro_inaccuracy(
-                        G_micro, G_macro, macro_mapping, macro_types, t)
     CE['G_macro'] = G_macro
     CE['G_micro'] = G_micro
     CE['mapping'] = macro_mapping
     CE['macro_types'] = macro_types
-    CE['inaccuracy'] = inaccuracies['inaccuracies']
     CE['EI_micro'] = EI_micro
     CE['EI_macro'] = EI_macro
-    # CE['pair_accuracy'] = (accurate_macro_pairs, inaccurate_macro_pairs)
 
-    CE['inaccuracy'][CE['inaccuracy'] < 1e-8] = 0
+    if check_inacc:
+        inaccuracies = macro_inaccuracy(G_micro, G_macro, macro_mapping,
+                                        macro_types, t)
+        CE['inaccuracy'] = inaccuracies['inaccuracies']
+
     return CE
 
 
 def macro_inaccuracy(G_micro, G_macro, macro_mapping, macro_types, t=500):
-    """
+    r"""
     Here, we consider only the inaccuracy associated with a macro scale mapping
     through the introduction of random walkers on micronodes that have not been
     grouped into macro nodes. From this, the inaccuracy associated with a
@@ -697,7 +706,7 @@ def macro_inaccuracy(G_micro, G_macro, macro_mapping, macro_types, t=500):
 
     # get the total amount of macro nodes once HOMs are added in
     # (assuming there are in fact higher-order macros)
-    N_macro = len(macro_nodes)
+    # N_macro = len(macro_nodes)
     spatem2_count = 0
     for x in range(len(macro_nodes)):
         macro_type = macro_types[macro_nodes[x]]
@@ -764,7 +773,7 @@ def macro_inaccuracy(G_micro, G_macro, macro_mapping, macro_types, t=500):
     for macro in list_of_macros:
         Win_j = macro.T.dot(distribution_over_macro)
         ED_macro = Win_j / sum(Win_j)
-        EffectDist_macro = ED_macro
+        # EffectDist_macro = ED_macro
 
         # get only the initial micro nodes (all in front)
         ED_micro_just_micro = []
@@ -809,13 +818,14 @@ def macro_inaccuracy(G_micro, G_macro, macro_mapping, macro_types, t=500):
         inaccuracy = KLD_for_inaccuracy(distr1, distr2)
         inaccuracies.append(inaccuracy)
 
+    inaccuracies[inaccuracies < 1e-8] = 0
     inaccuracy_dict['inaccuracies'] = np.array(inaccuracies)
 
     return inaccuracy_dict
 
 
 def markov_blanket(G, internal_nodes=[]):
-    """
+    r"""
     Given a graph and a specified (list of) internal node(s), return
     the parents, the children, and the parents of the children of the
     internal node(s).
@@ -870,7 +880,7 @@ def markov_blanket(G, internal_nodes=[]):
 
 
 def update_markov_blanket(MB, remove_nodes=[]):
-    """
+    r"""
     Given a Markov Blanket dict and a (list of) node(s) that need to be
     updated in the blanket (i.e. they were recruited into a macro-node
     and should therefore not be searched), return a new Markov Blanket
@@ -908,7 +918,7 @@ def update_markov_blanket(MB, remove_nodes=[]):
 
 
 def all_possible_mappings(G):
-    """
+    r"""
     This function will return a list of dictionaries, each containing a
     macro_mapping of the network in question. Be careful with this function
     though, as the size of the network grows to beyond N = 10, there are too
@@ -1053,7 +1063,7 @@ def all_possible_mappings(G):
 
 def intervention_distribution(G, macro_mapping,
                               scale='macro', conditional=True):
-    """
+    r"""
     Given a network and a macro_mapping, this function returns the intervention
     distribution, depending on the scale of the network being input. Note: if
     scale='micro', this function outputs an intervention distribution where
@@ -1135,7 +1145,7 @@ def intervention_distribution(G, macro_mapping,
 
 
 def reorder_elements(Win_micro, macro_mapping):
-    """
+    r"""
     The function for finding the intervention distribution returns
     a vector of length N_micro. This needs to be reshaped in the
     calculation of inaccuracy, meaning macro nodes should be in the
@@ -1199,3 +1209,217 @@ def reorder_elements(Win_micro, macro_mapping):
         ind += 1
 
     return Win_micro_given_macro
+
+
+def construct_distance_matrix(G_micro, nonz=1e-3, dist_add=1e3):
+    r"""
+    Make distance matrix for OPTICS algorithm for spectral causal emergence.
+    This is done through an eigendecomposition of the transition probability
+    matrix (Wout) of G_micro, the original microscale network.
+
+    The eigenvalues and eigenvectors of Wout is computed via
+
+        $$ W_{out} = E \Lambda E^T $$
+
+    where columns in $E$ corresponds to the eigenvectors of nodes in G_micro,
+    weighted by the eigenvalue they are associated with.
+
+
+        Development work contributed by Ross Griebenow.
+            email: rossgriebenow at gmail dot com
+
+    Parameters
+    ----------
+    G_micro (nx.Graph or np.ndarray): the microscale network in question.
+    nonz (float): Simple parameter governing the minimum size that an
+                  eigenvalue can be in order to be included in the distance
+                  calculation
+    dist_add (float): Should technically be infinity, but for practical
+                      purposes, only ~1000 is needed in order to only measure
+                      the distance between nodes within each nodes' Markov
+                      blankets.
+
+    Returns
+    -------
+    dist (np.ndarray): the distance matrix upon which the OPTICS algorithm
+                       will perform spectral clustering with different distance
+                       thresholds, $\epsilon$
+
+    """
+
+    Wout = W_out(G_micro)
+    lam, eig = np.linalg.eig(Wout)
+    span = np.nonzero(np.abs(np.real(lam)) > nonz)[0]
+
+    # weight the eigenvectors by their corresponding eigenvalues
+    M = np.real(eig)[:, span] * np.real(lam)[span]
+
+    # create values for a distance matrix, which will become the output
+    distance_vector = sp.spatial.distance.pdist(M, metric='cosine')
+
+    dist = sp.spatial.distance.squareform(distance_vector)
+    dist[np.isnan(dist)] = 0
+
+    MB = markov_blanket(G_micro)
+    for i in range(G_micro.number_of_nodes()):
+        dist[:, i] += dist_add
+        dist[MB[i], i] -= dist_add
+
+    return dist
+
+
+def find_epsilon_mapping(reach, core, order, G_micro, depth=4,
+                         min_ep=1e-4, max_ep=9.99e-1, scale=1e-4):
+    r"""
+    Binary search down the tree of possible epsilon values for finding the one
+    that returns a macroscale mapping that maximizes the effective information
+    of the resulting macroscale network. The spectral algorithm OPTICS creates
+    a mapping of of points to clusters based on a distance matrix, which itself
+    was generated by eigendecomposing the transition probability matrix of
+    G_micro, the original graph.
+
+    Algorithm adapted from the paper:
+        Mihael Ankerst. Markus M. Breunig, Hans-Peter Kriegel, & Jörg Sander
+        “OPTICS: Ordering points to identify the clustering structure”.
+        Proc. ACM SIGMOD’99 Int. Conf. on Management of Data. ACM Press, 1999
+
+    Development work contributed by Ross Griebenow.
+        email: rossgriebenow at gmail dot com
+
+    Parameters
+    ----------
+    reach, core, order (optics parameters): outputs from the original run of
+                        the OPTICS algorithm.
+    G_micro (nx.Graph or np.ndarray): the microscale network in question.
+    depth (int): How many iterations deep the algorithm should run.
+    min_ep (float): the minimum value to check for grouping nodes into macros
+    max_ep (float): the maximum value to check for grouping nodes into macros
+    scale (float): the smallest value to use for re-updating the epsilon range
+
+    Returns
+    -------
+    if depth==0:
+        EI_macro (float): the $EI$ of the macro_mapping that was selected
+        macro_mapping (dict): the macroscale mapping that maximizes the $EI$
+                              of the resulting macroscale network, G_macro.
+
+    """
+
+    eps_range = (max_ep - min_ep)*scale
+    epsilon_ei = []
+    epsilon_range = np.linspace(min_ep, max_ep, 3)
+    epsilon_mappings = []
+
+    for eps in epsilon_range:
+
+        labs_e = cluster_optics_dbscan(reach, core, order, eps)
+
+        macro_mapping_e = {i: i if lab == -1 else (len(labs_e)+lab)
+                           for i, lab in enumerate(labs_e)}
+        macro_types_e = {i: 'spatem1' for i in macro_mapping_e.values()
+                         if i > max(macro_mapping_e.keys())}
+
+        Gm_e = create_macro(G_micro, macro_mapping_e, macro_types_e)
+        G_macro_e = check_network(Gm_e)
+
+        EI_macro_e = effective_information(G_macro_e)
+        epsilon_ei.append(EI_macro_e)
+        epsilon_mappings.append(macro_mapping_e)
+
+    if depth == 0:
+        ind = np.argmax(epsilon_ei)
+        return epsilon_ei[ind], epsilon_mappings[ind]
+
+    else:
+        if epsilon_ei[1] >= epsilon_ei[2] and epsilon_ei[1] >= epsilon_ei[0]:
+            new_max = (epsilon_range[1] + epsilon_range[2]) / 2 + eps_range
+            new_min = (epsilon_range[1] + epsilon_range[0]) / 2 - eps_range
+
+        elif epsilon_ei[0] >= epsilon_ei[2] and epsilon_ei[0] >= epsilon_ei[1]:
+            new_max = epsilon_range[1] + eps_range
+            new_min = epsilon_range[0] - eps_range
+
+        else:
+            new_max = epsilon_range[2] + eps_range
+            new_min = epsilon_range[1] - eps_range
+
+        return find_epsilon_mapping(reach, core, order, G_micro,
+                                    depth=depth-1, min_ep=new_min,
+                                    max_ep=new_max, scale=scale)
+
+
+def causal_emergence_spectral(G, check_inacc=False, t=500):
+    r"""
+    Given a microscale network, G, this function computes a macroscale mapping,
+    macro_mapping, using a spectral clustering method such that when G is
+    recast as a coarse-grained representation, G_macro, the resulting graph's
+    $EI$ is higher than the original network.
+
+    Parameters
+    ----------
+    G (nx.Graph or np.ndarray): the network in question.
+    check_inacc (bool): will check the inaccuracy following the addition of
+                        each newly-added macro-node, to ensure that only
+                        accurate macros are added.
+    t (int): default to 10, this the number of timesteps over which inaccuracy
+             is evaluated.
+
+    Returns
+    -------
+    CE (dict): a dictionary with the following information
+      - G_macro (nx.Graph): a coarse-grained description of the micro network.
+      - G_micro (nx.Graph): the original microscale network.
+      - mapping (dict): the mapping that most-successfully increased the
+                        effective information of the network.
+      - macro_types (dict): the dictionary associated with each type of
+                            macronode in the "winning" G_macro. If types==False
+                            then this just is a dictionary with every value
+                            set to 'spatem1'.
+      - EI_micro (float): the effective information of the micro scale network
+      - EI_macro (float): the effective information of the macro scale network
+      if check_inacc==True:
+          - inaccuracy (np.ndarray): a sequence of inaccuracy values associated
+                                 with the successful macro_mapping.
+
+    """
+
+    G_micro = check_network(G)
+    EI_micro = effective_information(G_micro)
+
+    dist = construct_distance_matrix(G_micro)
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        optics = OPTICS(min_samples=2, max_eps=1.0, metric='precomputed')
+        _ = optics.fit_predict(dist)  # might need to fix
+
+    reach = optics.reachability_
+    core = optics.core_distances_
+    order = optics.ordering_
+
+    EI_macro, macro_mapping = find_epsilon_mapping(reach, core, order, G_micro)
+
+    macro_types = {i: 'spatem1' for i, j in macro_mapping.items() if i != j}
+
+    CE = {}
+    if macro_types == {}:
+        EI_macro = EI_micro
+        G_macro = G_micro.copy()
+
+    else:
+        G_macro = create_macro(G_micro, macro_mapping, macro_types)
+        G_macro = check_network(G_macro)
+
+    CE['G_macro'] = G_macro
+    CE['G_micro'] = G_micro
+    CE['mapping'] = macro_mapping
+    CE['macro_types'] = macro_types
+    CE['EI_micro'] = EI_micro
+    CE['EI_macro'] = EI_macro
+
+    if check_inacc:
+        inaccuracies = macro_inaccuracy(G_micro, G_macro, macro_mapping,
+                                        macro_types, t)
+        CE['inaccuracy'] = inaccuracies['inaccuracies']
+
+    return CE
