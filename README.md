@@ -7,8 +7,8 @@ the microscale, a phenomenon known as *causal emergence*. This code
 accompanies the recent paper: 
 
 **The emergence of informative higher scales in complex networks**\
-Brennan Klein and Erik Hoel, 2020.\
-[arXiv:1907.03902](https://arxiv.org/abs/1907.03902)
+Brennan Klein and Erik Hoel, 2020. Complexity.\
+[doi:10.1155/2020/8932526](https://doi.org/10.1155/2020/8932526)
 
 - - - -
 
@@ -35,6 +35,7 @@ Brennan Klein and Erik Hoel, 2020.\
 6. [Chapter 06 - Causal Emergence and the Emergence of Scale](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2006%20-%20Causal%20Emergence%20and%20the%20Emergence%20of%20Scale.ipynb)
 7. [Chapter 07 - Estimating Causal Emergence in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2007%20-%20Estimating%20Causal%20Emergence%20in%20Real%20Networks.ipynb)
 8. [Chapter 08 - Miscellaneous](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2008%20-%20Miscellaneous.ipynb)
+9. [Chapter 09 - Spectral Causal Emergence](https://github.com/jkbren/einet/blob/master/code/Chapter%2009%20-%20Spectral%20Causal%20Emergence.ipynb)
 
 ## Installation and Usage
 
@@ -79,16 +80,19 @@ and the named colors are from [https://medialab.github.io/iwanthue/](https://med
 If you use these methods and this code in your own research, please cite our paper:
 
 Klein, B. & Hoel, E. (2020). **The emergence of informative higher scales in complex networks**. 
-_Complexity_, no. 8932526. [arXiv:1907.03902](https://arxiv.org/abs/1907.03902).
+_Complexity_, no. 8932526. doi:[10.1155/2020/8932526](https://doi.org/10.1155/2020/8932526).
 
 Bibtex: 
 ```text
-@article{klein2020causalemergence,
-  title={The emergence of informative higher scales in complex networks},
-  author={Klein, Brennan and Hoel, Erik},
-  journal={Complexity},
-  year={2020},
-  number={8932526}
+@article{Klein2020causalemergence,
+    title = {{The emergence of informative higher scales in complex networks}},
+    author = {Klein, Brennan and Hoel, Erik},
+    journal = {Complexity},
+    year = {2020},
+    pages = {1--12},
+    volume = {2020},
+    arxivId = {1907.03902v2},
+    doi = {10.1155/2020/8932526}
 }
 ```
 
