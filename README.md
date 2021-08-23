@@ -37,7 +37,7 @@ Brennan Klein and Erik Hoel, 2020. Complexity.\
 6. [Chapter 06 - Causal Emergence and the Emergence of Scale](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2006%20-%20Causal%20Emergence%20and%20the%20Emergence%20of%20Scale.ipynb)
 7. [Chapter 07 - Estimating Causal Emergence in Real Networks](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2007%20-%20Estimating%20Causal%20Emergence%20in%20Real%20Networks.ipynb)
 8. [Chapter 08 - Miscellaneous](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2008%20-%20Miscellaneous.ipynb)
-9. [Chapter 09 - Spectral Causal Emergence](https://github.com/jkbren/einet/blob/master/code/Chapter%2009%20-%20Spectral%20Causal%20Emergence.ipynb)
+9. [Chapter 09 - Spectral Causal Emergence](https://nbviewer.jupyter.org/github/jkbren/einet/blob/master/code/Chapter%2009%20-%20Spectral%20Causal%20Emergence.ipynb)
 
 ## Installation and Usage
 
