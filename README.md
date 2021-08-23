@@ -1,5 +1,7 @@
 # Effective information and causal emergence in python
 
+[![DOI](https://zenodo.org/badge/167852490.svg)](https://zenodo.org/badge/latestdoi/167852490)
+
 Python code for calculating *effective information* in networks. This can 
 then be used to search for macroscale representations of a network such 
 that the coarse grained representation has more effective information than 
